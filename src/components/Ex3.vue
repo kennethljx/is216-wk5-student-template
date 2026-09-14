@@ -3,19 +3,34 @@ import { ref, computed } from 'vue'
 
 const x = ref(0)
 const y = ref(0)
+const lastResult = ref(0)
 const operators = ref(["+", "-", "*", "/", "%"])
 const selectedOp = ref("+")
 
 // TODO: Add Code Here
 // Note: DO NOT USE "eval()". In security, "eval" is considered "evil"!!!
+const result = computed (() => {
+    if (selectedOp.value == '+') {
+        lastResult.value = x.value + y.value;
+    } else if (selectedOp.value == '-') {
+        lastResult.value = x.value - y.value;
+    } else if (selectedOp.value == '*') {
+        lastResult.value = x.value * y.value;
+    } else if (selectedOp.value == '/') {
+        lastResult.value = x.value / y.value;
+    } else if (selectedOp.value == '%') {
+        lastResult.value = x.value % y.value;
+    }
+    return lastResult
+})
 
-    
+
 </script>
 
 <template>
     <p>x <input v-model.number="x"></p>
     <select v-model="selectedOp">
-        <option v-for="op in operators">{{ op }}</option>
+        <option v-for="op in operators" >{{ op }}</option>
     </select>
     <p>y <input v-model.number="y"></p>
 
