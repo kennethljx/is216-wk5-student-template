@@ -33,6 +33,7 @@ function reset() {
         <p>Current: {{ scoreA }} - {{ scoreB }}</p>
 
         <!-- B. In-template expressions go here -->
+         <p>Total points: {{ scoreA + scoreB }}</p>
          <p>Points left to win: {{ scoreA > scoreB ? maxScore - scoreA : maxScore - scoreB }}</p>
 
         <!-- A. Event handlers go here -->
