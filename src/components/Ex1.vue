@@ -24,6 +24,7 @@ function mOut() {
 
 </template>
 
+
 <style scoped>
 #square {
     width: 150px;
